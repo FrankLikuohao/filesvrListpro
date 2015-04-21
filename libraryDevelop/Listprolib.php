@@ -750,7 +750,9 @@ function tolinkaddressLocal_nofilename($tmpfilename)
 	//$picDir= 'upload/';
 	//$tmpfilename = $dir . $tmpfilename;
 	//<img src="upload/66-1.jpg" width="16" height="12" alt="text" />
-	$filename='<img src=http://192.168.1.101:6001/'. "$tmpfilename" . ' width=16 height=12 alt=text />';
+	//$filename='<img src=http://192.168.1.101:6001/'. "$tmpfilename" . ' width=16 height=12 alt=text />';
+	//$filename='<img src=http://$SERVER_ADDR:$SERVER_PORT/'. "$tmpfilename" . ' width=16 height=12 alt=txt>';
+	$filename='<img src=http://' . $_SERVER['SERVER_ADDR'] . ':' . $_SERVER['SERVER_PORT'] . '/'. "$tmpfilename" . ' width=16 height=12 alt=txt>';
 	//$filename='<a href=http://192.168.1.101:6001/downloadurl.php?f='. "$tmpfilename" . '>' ."Local"  .'</a>';
 	//print"[tmpfilename=$tmpfilename] imgfilename=[$filename]";
 	
@@ -762,7 +764,8 @@ function tolinkaddressLocal_nofilename($tmpfilename)
 	//$picDir= 'upload/';
 	//$tmpfilename = $dir . $tmpfilename;
 	//<img src="upload/66-1.jpg" width="16" height="12" alt="text" />
-	$filename='<img src=http://192.168.1.101:6001/'. "$tmpfilename" . ' width=16 height=12 alt='.$originalfilename.'>';
+	//$filename='<img src=http://192.168.1.101:6001/'. "$tmpfilename" . ' width=16 height=12 alt='.$originalfilename.'>';
+	$filename='<img src=http://' . $_SERVER['SERVER_ADDR'] . ':' . $_SERVER['SERVER_PORT'] . '/'. "$tmpfilename" . ' width=16 height=12 alt='.$originalfilename.'>';
 	//$filename='<a href=http://192.168.1.101:6001/downloadurl.php?f='. "$tmpfilename" . '>' ."Local"  .'</a>';
 	//print"[tmpfilename=$tmpfilename] imgfilename=[$filename]";
 	

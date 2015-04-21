@@ -33,11 +33,15 @@ if ($handle = opendir('upload/')) {
         if ($pos === false) {$ip= '1.34.130.91';}
         else {$ip= '192.168.1.101';}
         
-        $string= '<a href=http://'. $ip . ':6001/downloadurl.php?f=upload/' . $entry . '>upload/' . $entry .'</a>';
+	$entry=str_replace(" ","%20",$entry);
+        $string= '<a href=http://'. $ip . ':6001/upload/' . $entry . '>upload/' . $entry .'</a>';
+        #$string= '<a href=http://'. $ip . ':6001/downloadurl.php?f=upload/' . $entry . '>upload/' . $entry .'</a>';
       
         print  "<br>$string ($size kb)";
         //<img src="upload/66-1.jpg" width="16" height="12" alt="text" />
+	$entry=str_replace(" ","%20",$entry);
         $picstring='<img src=http://'. $ip . ':6001/' . 'upload/' . $entry .' width="16" height="12" alt="text" />';
+        //$picstring='<img src=http://'. $ip . ':6001/' . 'upload/' . $entry .' width="16" height="12" alt="text" />';
         print  "$picstring ";
         
     }

@@ -109,6 +109,8 @@ function modify_show($updateiterms)
   echo " </form>";
   mysql_close($conn);
   $newnotes=str_replace("width=16 height=12","width=480 height=520 ",$row[Notes]);
+  $newnotes=str_replace('$SERVER_ADDR',$_SERVER['SERVER_ADDR'],$newnotes);
+  $newnotes=str_replace('$SERVER_PORT',$_SERVER['SERVER_PORT'],$newnotes);
    if(isset($_GET[ShowPicture]))
    {
 	   
@@ -1049,7 +1051,10 @@ else
     else 
     {echo   "<th width='90' scope='col'". $color1 . ">$row[Where]</th>";}
     //echo   "<th><textarea name='mutiNotes[]' rows='3' type='text' id='Iterms'". $color1 .">" .$row[Notes] ."</textarea></th>";
-    echo   "<th align=left width='180' scope='col' hight='100' ". $color1 . ">$row[Notes]</th>";
+    	$newnotes=str_replace('$SERVER_ADDR',$_SERVER['SERVER_ADDR'],$row[Notes]);
+  	$newnotes=str_replace('$SERVER_PORT',$_SERVER['SERVER_PORT'],$newnotes);
+  	
+    echo   "<th align=left width='180' scope='col' hight='100' ". $color1 . ">$newnotes</th>";
     //echo   "<th width='180' scope='col' hight='100' ". $color1 . "style='overflow: hidden;'>$row[Notes]</th>";
     echo   "<th width='90' scope='col'". $color1 . ">$row[Price]</th>";
     echo   "<th width='90' scope='col'". $color1 . ">$row[Date]</th>";

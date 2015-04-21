@@ -31,9 +31,10 @@ function Delete_Yes()
 				
 				$query="DELETE FROM `todolist` WHERE `id`  = $selectid ";
 				 //echo "[$Notes]";
+				 if(strpos($Notes,'src=http://192.168.1.101:6001/')!== false ){
 				 //if(strpos($Notes,'src=http://192.168.1.101:6001/')!== false ){
-				//	erasenotesoldfiles($Notes,"");
-				// }	
+					erasenotesoldfiles($Notes,"");
+				 }	
 				//echo "<br>record $index>query=[$query]"; 
 				
 				mysql_query($query) or die('Error, update select id');
